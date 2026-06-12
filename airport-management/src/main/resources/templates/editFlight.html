@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+     <title>Edit Flight</title>
+     
+     <style>
+
+          body
+          {
+               margin:0;
+               font-family:Arial,sans-serif;
+               background:linear-gradient(135deg,#eef5ff,#f9fbff);
+               text-align:center;
+          }
+          .navbar
+          {
+               background:#003366;
+               color:white;
+               padding:18px;
+               font-size:30px;
+               font-weight:bold;
+               box-shadow:0 4px 10px rgba(0,0,0,0.2);
+          }
+          h1
+          {
+               color:#003366;
+               margin-top:40px;
+               font-size:42px;
+          }
+          .card
+          {
+               background:white;
+               width:500px;
+               margin:40px auto;
+               padding:30px;
+               border-radius:15px;
+               box-shadow:0 6px 18px rgba(0,0,0,0.15);
+          }
+          input
+          {
+               width:90%;
+               padding:12px;
+               margin:10px;
+               border:1px solid #ccc;
+               border-radius:8px;
+               font-size:16px;
+          }
+          button
+          {
+               padding:12px 25px;
+               background:linear-gradient(135deg,#007bff,#0056b3);
+               color:white;
+               border:none;
+               border-radius:8px;
+               font-size:16px;
+               font-weight:bold;
+               cursor:pointer;
+               transition:0.3s;
+          }
+          button:hover
+          {
+               background:linear-gradient(135deg,#0056b3,#003366);
+          }
+          .back-btn
+          {
+               display:inline-block;
+               margin-top:15px;
+               text-decoration:none;
+               color:#003366;
+               font-weight:bold;
+          }
+          .footer
+          {
+               background:#003366;
+               color:white;
+               padding:18px;
+               margin-top:80px;
+               font-size:18px;
+          }
+     </style>
+
+</head>
+<body>
+
+<div class="navbar">
+    ✈ Airport Management System
+</div>
+
+<h1>Edit Flight</h1>
+
+<div class="card">
+     <form action="/updateFlight" method="post">
+          
+          <input type="hidden"
+           name="flightId"
+           th:value="${flight.flightId}">
+
+          <input type="text"
+           name="flightName"
+           th:value="${flight.flightName}"
+           placeholder="Flight Name">
+
+          <input type="text"
+           name="source"
+           th:value="${flight.source}"
+           placeholder="Source">
+
+          <input type="text"
+           name="destination"
+           th:value="${flight.destination}"
+           placeholder="Destination">
+
+          <select name="status">
+               <option value="On Time">On Time</option>
+               <option value="Delayed">Delayed</option>
+               <option value="Cancelled">Cancelled</option>
+          </select>
+
+          <br><br>
+
+          <button type="submit">
+               Update Flight
+          </button>
+
+</form>
+
+<br>
+
+<a href="/flights" class="back-btn">
+    ← Back to Flights
+</a>
+
+</div>
+
+<div class="footer">
+    © 2026 Airport Management System
+</div>
+
+</body>
+</html>

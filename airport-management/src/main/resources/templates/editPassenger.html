@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Passenger</title>
+
+    <style>
+        body
+        {
+            font-family: Arial, sans-serif;
+            background:#f4f6f9;
+            margin:0;
+            text-align:center;
+        }
+        .navbar
+        {
+            background:#003366;
+            color:white;
+            padding:20px;
+            font-size:28px;
+            font-weight:bold;
+        }
+        h1
+        {
+            color:#003366;
+            margin-top:50px;
+            font-size:55px;
+        }
+        .form-box
+        {
+            background:white;
+            width:500px;
+            margin:40px auto;
+            padding:40px;
+            border-radius:15px;
+            box-shadow:0 4px 15px rgba(0,0,0,0.15);
+        }
+        input
+        {
+            width:90%;
+            padding:14px;
+            margin:10px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:16px;
+        }
+        button
+        {
+            background:#007bff;
+            color:white;
+            border:none;
+            padding:14px 30px;
+            border-radius:8px;
+            font-size:18px;
+            font-weight:bold;
+            cursor:pointer;
+            margin-top:15px;
+        }
+        button:hover
+        {
+            background:#0056b3;
+        }
+        .back
+        {
+            display:block;
+            margin-top:25px;
+            text-decoration:none;
+            color:#003366;
+            font-weight:bold;
+        }
+        .footer
+        {
+            background:#003366;
+            color:white;
+            text-align:center;
+            padding:18px;
+            margin-top:50px;
+            font-size:18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    ✈ Airport Management System
+</div>
+
+<h1>Edit Passenger</h1>
+
+<div class="form-box">
+
+<form action="/updatePassenger" method="post">
+
+    <input type="hidden"
+           name="passengerId"
+           th:value="${passenger.passengerId}">
+
+    <input type="text"
+           name="passengerName"
+           th:value="${passenger.passengerName}">
+
+    <input type="number"
+           name="age"
+           th:value="${passenger.age}">
+
+    <input type="text"
+           name="gender"
+           th:value="${passenger.gender}">
+
+    <br>
+
+    <button type="submit">
+        Update Passenger
+    </button>
+
+</form>
+
+<a href="/passengers" class="back">
+    ← Back to Passengers
+</a>
+
+</div>
+
+<div class="footer">
+    © 2026 Airport Management System
+</div>
+
+</body>
+</html>

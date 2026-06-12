@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Passenger Details</title>
+
+    <style>
+        body 
+        {
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:linear-gradient(135deg,#eef5ff,#f9fbff);
+            text-align:center;
+        }
+        .navbar 
+        {
+            background:#003366;
+            color:white;
+            padding:18px;
+            text-align:center;
+            font-size:30px;
+            font-weight:bold;
+            box-shadow:0 4px 10px rgba(0,0,0,0.2);
+        }
+        h1 
+        {
+            color:#003366;
+            font-size:42px;
+            margin-top:40px;
+            text-shadow:2px 2px 8px rgba(0,0,0,0.12);
+        }
+        .form-box 
+        {
+            margin:25px auto;
+            background:white;
+            padding:20px;
+            width:70%;
+            border-radius:15px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.15);
+        }
+        input 
+        {
+            padding:12px;
+            margin:8px;
+            width:220px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:15px;
+        }
+        button 
+        {
+            padding:12px 22px;
+            background:linear-gradient(135deg,#007bff,#0056b3);
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:15px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+            box-shadow:0 4px 10px rgba(0,0,0,0.2);
+        }
+        button:hover
+        {
+            transform:translateY(-2px);
+            background:linear-gradient(135deg,#0056b3,#003366);
+        }
+        table 
+        {
+            margin:35px auto;
+            border-collapse:collapse;
+            width:85%;
+            background:white;
+            border-radius:15px;
+            overflow:hidden;
+            box-shadow:0 6px 18px rgba(0,0,0,0.15);
+        }
+        th, td 
+        {
+            padding:15px;
+            border-bottom:1px solid #ddd;
+            font-size:16px;
+        }
+        th 
+        {
+            background:#003366;
+            color:white;
+            font-size:18px;
+        }
+        tr:hover 
+        {
+            background:#f1f7ff;
+        }
+        a 
+        {
+            color:#007bff;
+            font-weight:bold;
+            text-decoration:none;
+        }
+        a:hover 
+        {
+            text-decoration:underline;
+        }
+        .back-btn 
+        {
+            display:inline-block;
+            margin-top:10px;
+            color:#003366;
+            font-weight:bold;
+            text-decoration:none;
+        }
+        .footer 
+        {
+            background:#003366;
+            color:white;
+            text-align:center;
+            padding:18px;
+            margin-top:70px;
+            font-size:18px;
+        }
+        .btn-edit
+        {
+            background:#28a745;
+            color:white;
+            padding:8px 15px;
+            text-decoration:none;
+            border-radius:6px;
+            font-weight:bold;
+        }
+        .btn-edit:hover
+        {
+            background:#218838;
+        }
+        .btn-delete
+        {
+            background:#dc3545;
+            color:white;
+            padding:8px 15px;
+            text-decoration:none;
+            border-radius:6px;
+            font-weight:bold;
+        }
+        .btn-delete:hover
+        {
+            background:#c82333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        ✈ Airport Management System
+    </div>
+
+    <h1>Passenger Details</h1>
+
+    <div class="form-box">
+        <form action="/savePassenger" method="post">
+            <input type="text" name="passengerName" placeholder="Enter Name" required>
+            <input type="number" name="age" placeholder="Enter Age" required>
+            <input type="text" name="gender" placeholder="Enter Gender" required>
+            <button type="submit">Add Passenger</button>
+        </form>
+
+        <br>
+
+        <form action="/searchPassenger" method="get">
+            <input type="text" name="keyword" placeholder="Search Passenger Name">
+            <button type="submit">Search</button>
+        </form>
+
+        <a href="/" class="back-btn">← Back to Home</a>
+    </div>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Action</th>
+        </tr>
+
+        <tr th:each="passenger : ${passengers}">
+            <td th:text="${passenger.passengerId}"></td>
+            <td th:text="${passenger.passengerName}"></td>
+            <td th:text="${passenger.age}"></td>
+            <td th:text="${passenger.gender}"></td>
+            <td>
+                <a th:href="@{/editPassenger/{id}(id=${passenger.passengerId})}"class="btn-edit">
+                    Edit
+                </a>
+                
+                <a th:href="@{/deletePassenger/{id}(id=${passenger.passengerId})}"class="btn-delete"
+                onclick="return confirm('Are you sure you want to delete this passenger?')">
+                    Delete
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <div class="footer">
+        © 2026 Airport Management System
+    </div>
+
+</body>
+</html>

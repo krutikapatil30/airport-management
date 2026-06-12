@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Airport Management System</title>
+
+    <style>
+        body 
+        {
+            margin:0;
+            font-family:Arial, sans-serif;
+            background:linear-gradient(135deg,#eef5ff,#f9fbff);
+        }
+        .navbar 
+        {
+            background:#003366;
+            color:white;
+            padding:18px;
+            text-align:center;
+            font-size:30px;
+            font-weight:bold;
+            box-shadow:0 4px 10px rgba(0,0,0,0.2);
+        }
+        .hero 
+        {
+            text-align:center;
+            padding:60px 20px;
+        }
+        .hero h1 
+        {
+            color:#003366;
+            font-size:55px;
+            margin-bottom:15px;
+            text-shadow:2px 2px 8px rgba(0,0,0,0.15);
+        }
+        .hero .subtitle 
+        {
+            font-size:22px;
+            color:#444;
+            margin-top:20px;
+        }
+        .stats 
+        {
+            margin-top:35px;
+            display:flex;
+            justify-content:center;
+            gap:25px;
+            flex-wrap:wrap;
+        }
+        .card 
+        {
+            background:white;
+            padding:25px;
+            width:230px;
+            border-radius:16px;
+            box-shadow:0 6px 16px rgba(0,0,0,0.15);
+            transition:0.3s;
+        }
+        .card:hover 
+        {
+            transform:translateY(-6px);
+        }
+        .card h2 
+        {
+            color:#003366;
+            margin:0 0 12px 0;
+            font-size:22px;
+        }
+        .card p 
+        {
+            font-size:34px;
+            font-weight:bold;
+            color:#007bff;
+            margin:0;
+        }
+        .buttons 
+        {
+            margin-top:40px;
+        }
+        .btn 
+        {
+            background:linear-gradient(135deg,#007bff,#0056b3);
+            color:white;
+            padding:15px 30px;
+            text-decoration:none;
+            border-radius:12px;
+            margin:10px;
+            display:inline-block;
+            font-size:18px;
+            font-weight:bold;
+            transition:0.3s;
+            box-shadow:0 4px 10px rgba(0,0,0,0.2);
+        }
+        .btn:hover 
+        {
+            transform:translateY(-3px);
+            background:linear-gradient(135deg,#0056b3,#003366);
+        }
+
+        .footer 
+        {
+            background:#003366;
+            color:white;
+            text-align:center;
+            padding:18px;
+            margin-top:70px;
+            font-size:18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        ✈ Airport Management System
+    </div>
+
+    <div class="hero">
+        <h1>Welcome to Airport Management Website</h1>
+
+        <div class="stats">
+            <div class="card">
+                <h2>✈ Total Flights</h2>
+                <p th:text="${flightCount}">0</p>
+            </div>
+
+            <div class="card">
+                <h2>👥 Total Passengers</h2>
+                <p th:text="${passengerCount}">0</p>
+            </div>
+
+            <div class="card">
+                <h2>🎫 Total Bookings</h2>
+                <p th:text="${bookingCount}">0</p>
+            </div>
+        </div>
+
+        <p class="subtitle">
+            Manage Flights, Passengers and Bookings Easily.
+        </p>
+
+        <div class="buttons">
+            <a href="/flights" class="btn">Flight Management</a>
+            <a href="/passengers" class="btn">Passenger Details</a>
+            <a href="/bookings" class="btn">Book Ticket</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 Airport Management System
+    </div>
+
+</body>
+</html>
