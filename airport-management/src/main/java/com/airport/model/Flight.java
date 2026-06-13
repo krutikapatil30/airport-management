@@ -18,6 +18,7 @@ public class Flight
     private String source;
     private String destination;
     private String status;
+    private String departureTime;
 
     public int getFlightId() 
     {
@@ -71,5 +72,13 @@ public class Flight
     public void setStatus(String status)
     {
         this.status = status;
+    }
+    public String getDepartureTime()
+    {
+        return departureTime;
+    }
+    public void setDepartureTime(String departureTime)
+    {
+        this.departureTime = departureTime;
     }
 }

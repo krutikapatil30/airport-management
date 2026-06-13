@@ -176,6 +176,7 @@
                 <option value="Delayed">Delayed</option>
                 <option value="Cancelled">Cancelled</option>
             </select>
+            <input type="time" name="departureTime" required>
             <button type="submit">Add Flight</button>
         </form>
 
@@ -197,6 +198,7 @@
             <th>Source</th>
             <th>Destination</th>
             <th>Status</th>
+            <th>Departure Time</th>
             <th>Action</th>
         </tr>
 
@@ -207,6 +209,7 @@
             <td th:text="${flight.source}"></td>
             <td th:text="${flight.destination}"></td>
             <td th:text="${flight.status}"></td>
+            <td th:text="${flight.departureTime}"></td>
             <td>
                 <a th:href="@{/editFlight/{id}(id=${flight.flightId})}"
                 class="btn-edit">
