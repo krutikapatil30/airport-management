@@ -13,6 +13,7 @@ import com.airport.model.Booking;
 import com.airport.repository.BookingRepository;
 import com.airport.repository.PassengerRepository;
 import com.airport.repository.FlightRepository;
+import com.airport.model.Flight;
 
 @Controller
 public class BookingController 
@@ -54,6 +55,14 @@ public class BookingController
                 "Passenger or Flight does not exist!");
                 return "redirect:/bookings";
         }
+        Flight flight = flightRepository.findFirstByFlightNameIgnoreCaseAndAvailableSeatsGreaterThanOrderByFlightIdDesc(flightName, 0);
+        if(flight == null)
+        {
+            redirectAttributes.addFlashAttribute("error","No seats available for this flight!");
+            return "redirect:/bookings";
+        }
+        flight.setAvailableSeats(flight.getAvailableSeats() - 1);
+        flightRepository.save(flight);
         bookingRepository.save(booking);
         
         redirectAttributes.addFlashAttribute("success","Booking Saved Successfully!");

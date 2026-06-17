@@ -177,6 +177,15 @@
                 <option value="Cancelled">Cancelled</option>
             </select>
             <input type="time" name="departureTime" required>
+            <input type="time" name="arrivalTime" required>
+            <select name="flightClass" required>
+                <option value="">Select Class</option>
+                <option value="Economy">Economy</option>
+                <option value="Business">Business</option>
+                <option value="First Class">First Class</option>
+            </select>
+            <input type="number" name="ticketPrice" placeholder="Enter Ticket Price" required>
+            <input type="number" name="availableSeats" placeholder="Enter Available Seats" required>
             <button type="submit">Add Flight</button>
         </form>
 
@@ -190,7 +199,7 @@
         <a href="/" class="back-btn">← Back to Home</a>
     </div>
 
-    <table>
+   <table>
         <tr>
             <th>ID</th>
             <th>Flight No</th>
@@ -199,6 +208,10 @@
             <th>Destination</th>
             <th>Status</th>
             <th>Departure Time</th>
+            <th>Arrival Time</th>
+            <th>Class</th>
+            <th>Ticket Price</th>
+            <th>Available Seats</th>
             <th>Action</th>
         </tr>
 
@@ -210,6 +223,11 @@
             <td th:text="${flight.destination}"></td>
             <td th:text="${flight.status}"></td>
             <td th:text="${flight.departureTime}"></td>
+            <td th:text="${flight.arrivalTime}"></td>
+            <td th:text="${flight.flightClass}"></td>
+            <td th:text="${flight.ticketPrice}"></td>
+            <td th:text="${flight.availableSeats}"></td>
+            
             <td>
                 <a th:href="@{/editFlight/{id}(id=${flight.flightId})}"
                 class="btn-edit">
@@ -217,7 +235,7 @@
                 </a>
                 
                 <a th:href="@{/deleteFlight/{id}(id=${flight.flightId})}"
-                class="btn-delete"onclick="return confirm('Are you sure you want to delete this flight?')">
+                class="btn-delete" onclick="return confirm('Are you sure you want to delete this flight?')">
                     Delete
                 </a>
 

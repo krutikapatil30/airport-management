@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
 
 @Entity
 public class Flight 
@@ -13,12 +14,24 @@ public class Flight
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     
     private int flightId;
+    @Column(name = "flight_number")
     private String flightNumber;
+    @Column(name = "flight_name")
     private String flightName;
     private String source;
     private String destination;
     private String status;
+    @Column(name = "departure_time")
     private String departureTime;
+    @Column(name = "arrival_time")
+    private String arrivalTime;
+    @Column(name = "flight_class")
+    private String flightClass;
+    @Column(name = "ticket_price")
+    private double ticketPrice;
+    @Column(name = "available_seats")
+    private int availableSeats;
+
 
     public int getFlightId() 
     {
@@ -73,6 +86,7 @@ public class Flight
     {
         this.status = status;
     }
+
     public String getDepartureTime()
     {
         return departureTime;
@@ -81,4 +95,40 @@ public class Flight
     {
         this.departureTime = departureTime;
     }
+
+    public String getArrivalTime()
+    {
+        return arrivalTime;
+    }
+    public void setArrivalTime(String arrivalTime)
+    {
+        this.arrivalTime = arrivalTime;
+    }
+
+    public String getFlightClass()
+    {
+        return flightClass;
+    }
+    public void setFlightClass(String flightClass)
+    {
+        this.flightClass = flightClass;
+    }
+
+    public double getTicketPrice()
+    {
+        return ticketPrice;
+    }
+    public void setTicketPrice(double ticketPrice)
+    {
+        this.ticketPrice = ticketPrice;
+    }
+
+    public int getAvailableSeats()
+    {
+        return availableSeats;
+    }
+    public void setAvailableSeats(int availableSeats)
+    {
+        this.availableSeats = availableSeats;
+    }  
 }

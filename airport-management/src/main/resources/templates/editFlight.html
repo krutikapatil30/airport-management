@@ -45,6 +45,15 @@
                border-radius:8px;
                font-size:16px;
           }
+          select
+          {
+               width:90%;
+               padding:12px;
+               margin:10px;
+               border:1px solid #ccc;
+               border-radius:8px;
+               font-size:16px;
+          }
           button
           {
                padding:12px 25px;
@@ -92,24 +101,64 @@
      <form action="/updateFlight" method="post">
           
           <input type="hidden"
-           name="flightId"
-           th:value="${flight.flightId}">
+          name="flightId"
+          th:value="${flight.flightId}">
 
           <input type="text"
-           name="flightName"
-           th:value="${flight.flightName}"
-           placeholder="Flight Name">
+          name="flightNumber"
+          th:value="${flight.flightNumber}"
+          placeholder="Flight Number">
 
           <input type="text"
-           name="source"
-           th:value="${flight.source}"
-           placeholder="Source">
+          name="flightName"
+          th:value="${flight.flightName}"
+          placeholder="Flight Name">
 
           <input type="text"
-           name="destination"
-           th:value="${flight.destination}"
-           placeholder="Destination">
+          name="source"
+          th:value="${flight.source}"
+          placeholder="Source">
 
+          <input type="text"
+          name="destination"
+          th:value="${flight.destination}"
+          placeholder="Destination">
+
+          <input type="time"
+          name="departureTime"
+          th:value="${flight.departureTime}">
+           
+          <input type="time"
+          name="arrivalTime"
+          th:value="${flight.arrivalTime}">
+
+          <input type="number"
+          name="ticketPrice"
+          th:value="${flight.ticketPrice}"
+          placeholder="Ticket Price">
+
+          <input type="number"
+          name="availableSeats"
+          th:value="${flight.availableSeats}"
+          placeholder="Available Seats">
+
+          <br>
+          <select name="flightClass">
+               <option value="Economy"
+               th:selected="${flight.flightClass == 'Economy'}">
+                    Economy
+               </option>
+               
+               <option value="Business"
+               th:selected="${flight.flightClass == 'Business'}">
+                    Business
+               </option>
+               
+               <option value="First Class"
+               th:selected="${flight.flightClass == 'First Class'}">
+                    First Class
+               </option>
+          </select>
           <select name="status">
                <option value="On Time">On Time</option>
                <option value="Delayed">Delayed</option>
