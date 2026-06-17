@@ -132,6 +132,11 @@
                 <h2>🎫 Total Bookings</h2>
                 <p th:text="${bookingCount}">0</p>
             </div>
+
+            <div class="card">
+                <h2>💰 Total Revenue</h2>
+                <p th:text="${totalRevenue}">0</p>
+            </div>
         </div>
 
         <p class="subtitle">
@@ -143,6 +148,8 @@
             <a href="/passengers" class="btn">Passenger Details</a>
             <a href="/bookings" class="btn">Book Ticket</a>
         </div>
+        <br><br>
+        <a href="/logout" class="btn">Logout</a>
     </div>
 
     <div class="footer">

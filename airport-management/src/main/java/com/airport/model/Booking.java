@@ -15,6 +15,8 @@ public class Booking
 
     private String passengerName;
     private String flightName;
+    private double ticketPrice;
+    private String pnr;
 
     public int getBookingId() 
     {
@@ -44,5 +46,23 @@ public class Booking
     public void setFlightName(String flightName) 
     {
         this.flightName = flightName;
+    }
+
+    public double getTicketPrice()
+    {
+        return ticketPrice;
+    }
+    public void setTicketPrice(double ticketPrice)
+    {
+        this.ticketPrice = ticketPrice;
+    }
+
+    public String getPnr()
+    {
+        return pnr;
+    }
+    public void setPnr(String pnr)
+    {
+        this.pnr = pnr;
     }
 }

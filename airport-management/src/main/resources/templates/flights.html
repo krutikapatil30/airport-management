@@ -221,7 +221,22 @@
             <td th:text="${flight.flightName}"></td>
             <td th:text="${flight.source}"></td>
             <td th:text="${flight.destination}"></td>
-            <td th:text="${flight.status}"></td>
+            <td>
+                <span th:if="${flight.status == 'On Time'}"
+                    style="color:green;font-weight:bold;">
+                    On Time
+                </span>
+                
+                <span th:if="${flight.status == 'Delayed'}"
+                    style="color:orange;font-weight:bold;">
+                    Delayed
+                </span>
+
+                <span th:if="${flight.status == 'Cancelled'}"
+                    style="color:red;font-weight:bold;">
+                    Cancelled
+                </span>
+            </td>
             <td th:text="${flight.departureTime}"></td>
             <td th:text="${flight.arrivalTime}"></td>
             <td th:text="${flight.flightClass}"></td>

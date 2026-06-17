@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import com.airport.repository.FlightRepository;
 import com.airport.repository.PassengerRepository;
 import com.airport.repository.BookingRepository;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class HomeController 
@@ -22,12 +23,16 @@ public class HomeController
     private BookingRepository bookingRepository;
 
     @GetMapping("/")
-    public String home(Model model) 
+    public String home(Model model, HttpSession session)
     {
-
+        if(session.getAttribute("admin") == null)
+        {
+            return "redirect:/login";
+        }
         model.addAttribute("flightCount", flightRepository.count());
         model.addAttribute("passengerCount", passengerRepository.count());
         model.addAttribute("bookingCount", bookingRepository.count());
+        model.addAttribute("totalRevenue", bookingRepository.getTotalRevenue());
 
         return "index";
     }

@@ -63,6 +63,8 @@ public class BookingController
         }
         flight.setAvailableSeats(flight.getAvailableSeats() - 1);
         flightRepository.save(flight);
+        booking.setTicketPrice(flight.getTicketPrice());
+        booking.setPnr("PNR" + System.currentTimeMillis());
         bookingRepository.save(booking);
         
         redirectAttributes.addFlashAttribute("success","Booking Saved Successfully!");

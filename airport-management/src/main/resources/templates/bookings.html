@@ -188,6 +188,7 @@
             <th>Booking ID</th>
             <th>Passenger Name</th>
             <th>Flight Name</th>
+            <th>PNR Number</th>
             <th>Action</th>
         </tr>
 
@@ -195,6 +196,7 @@
             <td th:text="${booking.bookingId}"></td>
             <td th:text="${booking.passengerName}"></td>
             <td th:text="${booking.flightName}"></td>
+            <td th:text="${booking.pnr}"></td>
             <td>
                 <a th:href="@{/editBooking/{id}(id=${booking.bookingId})}"class="btn-edit">
                     Edit
