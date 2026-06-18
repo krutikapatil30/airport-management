@@ -25,15 +25,21 @@ public class HomeController
     @GetMapping("/")
     public String home(Model model, HttpSession session)
     {
-        if(session.getAttribute("admin") == null)
-        {
-            return "redirect:/login";
-        }
         model.addAttribute("flightCount", flightRepository.count());
         model.addAttribute("passengerCount", passengerRepository.count());
         model.addAttribute("bookingCount", bookingRepository.count());
         model.addAttribute("totalRevenue", bookingRepository.getTotalRevenue());
 
         return "index";
+    }
+    @GetMapping("/admin/dashboard")
+    public String adminDashboard(HttpSession session, Model model)
+    {
+        if(session.getAttribute("admin") == null)
+        {
+            return "redirect:/login";
+        }
+        model.addAttribute("username", session.getAttribute("admin"));
+        return "admin-dashboard";
     }
 }

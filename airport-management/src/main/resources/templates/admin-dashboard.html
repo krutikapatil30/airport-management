@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+
+    <style>
+        body 
+        {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #eef5ff, #f9fbff);
+            text-align: center;
+        }
+        .navbar 
+        {
+            background: #003366;
+            color: white;
+            padding: 22px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .card 
+        {
+            background: white;
+            width: 450px;
+            margin: 80px auto;
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        h1 
+        {
+            color: #003366;
+            margin-bottom: 10px;
+        }
+        p 
+        {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .btn 
+        {
+            display: block;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 14px;
+            margin: 15px auto;
+            width: 220px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .btn:hover 
+        {
+            background: #0056b3;
+        }
+
+        .logout 
+        {
+            background: #dc3545;
+        }
+
+        .logout:hover 
+        {
+            background: #b02a37;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">✈ Airport Management System</div>
+
+<div class="card">
+    <h1>Admin Dashboard</h1>
+    <p>Welcome Admin</p>
+    <a href="/changePassword" class="btn">Change Password</a>
+    <a href="/" class="btn">Home Page</a>
+    <a href="/logout" class="btn logout">Logout</a>
+</div>
+
+</body>
+</html>
